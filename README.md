@@ -1,8 +1,8 @@
-# Mercado de Trabalho – App Inatel (Clone Responsivo)
+# Mercado de Trabalho – App Inatel 
 
 **Nome:** Frederico Wlassow  
-**Matrícula:** [153]  
-**Disciplina:** Interfaces Homem Máquina 
+**Matrícula:** 153  
+**Disciplina:** Interface Homem Máquina 
 
 ## Link do projeto online (GitHub Pages)
 [https://fredwlassow13.github.io/Projeto-S05/]
