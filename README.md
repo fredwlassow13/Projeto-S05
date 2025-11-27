@@ -28,6 +28,7 @@ Criar uma nova funcionalidade completa para o App do Inatel: **seção “Mercad
 
 ## Estrutura de arquivos
 
+```plaintext
 ├── index.html          → Tela inicial (simulação do App)
 ├── vagas.html          → Listagem de vagas
 ├── detalhes.html       → Detalhes da vaga (dinâmico)
@@ -35,6 +36,8 @@ Criar uma nova funcionalidade completa para o App do Inatel: **seção “Mercad
 ├── style.css           → Estilos completos + tema escuro
 ├── script.js           → Menu, tema, envio de candidatura
 └── README.md           → Este arquivo
+
+```
 
 ## Como testar
 1. Acesse o link acima
