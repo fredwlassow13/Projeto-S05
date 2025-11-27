@@ -1,0 +1,373 @@
+/* style.css — VERSÃO FINAL OFICIAL — 26/11/2025 */
+
+.app-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    background: #ffffff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 20px;
+    min-height: 640px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* HEADER */
+header {
+    background-color: #0464bc;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    position: relative;
+}
+
+header .svg_logo {
+    width: 140px;
+    height: auto;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+header .menu-button,
+header .notification-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* TÍTULO DA TELA */
+.screen-title {
+    padding: 20px 20px 10px;
+    text-align: center;
+    background-color: white;
+}
+
+.screen-title h2 {
+    margin: 0;
+    font-size: 22px;
+    color: #0464bc;
+    font-weight: 600;
+}
+
+/* MENU PRINCIPAL */
+.main-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 20px;
+    flex-grow: 1;
+}
+
+.main-menu .menu-button {
+    background: #0077cc;
+    border: none;
+    color: white;
+    padding: 14px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 16px;
+    text-decoration: none;
+    display: block;
+    transition: all 0.3s;
+}
+
+.main-menu .menu-button:hover:not(.disabled) {
+    background-color: #ffffff;
+    color: #0464bc;
+}
+
+.main-menu .disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+/* MENU FLUTUANTE */
+.floating-menu {
+    position: fixed;
+    top: 58px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 240px;
+    max-width: 90%;
+    background-color: #0464bc;
+    padding: 15px 20px 25px;
+    border-radius: 16px;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.45);
+    z-index: 9999;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    text-align: center;
+}
+
+.floating-menu.show {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(-50%) translateY(8px);
+    animation: slideDown 0.35s ease forwards;
+}
+
+.floating-menu .close-menu {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background 0.2s;
+}
+
+.floating-menu .close-menu:hover {
+    background: rgba(255,255,255,0.25);
+}
+
+.menu-items {
+    margin-top: 38px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.floating-button,
+.theme-toggle-button {
+    padding: 12px;
+    background-color: #0055aa;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    width: 100%;
+    font-size: 15px;
+    font-weight: 500;
+    transition: background 0.3s;
+}
+
+.floating-button:hover,
+.theme-toggle-button:hover {
+    background-color: #003d7a;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+    to   { opacity: 1; transform: translateX(-50%) translateY(8px); }
+}
+
+/* CARDS E FORMULÁRIO */
+.vaga-card,
+.vaga-detalhes,
+.form-box {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    margin: 20px;
+}
+
+.button {
+    display: block;
+    width: calc(100% - 40px);
+    margin: 20px20px 0 20px;
+    padding: 14px 20px;
+    background: #0077cc;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.button:hover {
+    background: #005fa3;
+}
+
+body.dark-theme .button {
+    background: #0464bc !important;
+}
+
+body.dark-theme .button:hover {
+    background: #0580e0 !important;
+}
+
+.fixed-bottom-bar {
+    position: sticky;
+    bottom: 0;
+    background-color: white;
+    padding: 15px 20px;
+    border-top: 1px solid #e0e0e0;
+    z-index: 50;
+}
+
+.bottom-back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #0464bc;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(4,100,188,0.3);
+    transition: all 0.3s ease;
+}
+
+.bottom-back-button:hover {
+    background-color: #0352a0;
+    transform: translateY(-2px);
+}
+
+.bottom-back-button .material-icons {
+    font-size: 22px;
+}
+
+.search-box {
+    padding: 20px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.mensagem {
+    margin-top: 12px;
+    font-weight: bold;
+    text-align: center;
+}
+
+body.dark-theme {
+    background-color: #121212;
+    color: white;
+}
+
+body.dark-theme .app-container {
+    background-color: #1e1e1e;
+}
+
+body.dark-theme .screen-title,
+body.dark-theme .fixed-bottom-bar {
+    background-color: #1e1e1e;
+    border-top-color: #333;
+}
+
+body.dark-theme .vaga-card,
+body.dark-theme .vaga-detalhes,
+body.dark-theme .form-box {
+    background-color: #2d2d2d;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+
+body.dark-theme .search-box input {
+    background-color: #333;
+    border-color: #555;
+    color: white;
+}
+
+body.dark-theme .button {
+    background: #0464bc !important;
+}
+
+body.dark-theme .button:hover {
+    background: #0580e0 !important;
+}
+
+body.dark-theme .main-menu .menu-button:not(.disabled) {
+    background-color: #0464bc;
+}
+
+body.dark-theme .main-menu .menu-button:hover:not(.disabled) {
+    background-color: #0580e0;
+    color: white;
+}
+
+body.dark-theme .floating-menu {
+    background-color: #003d7a;
+}
+
+body.dark-theme .floating-button,
+body.dark-theme .theme-toggle-button {
+    background-color: #0055cc;
+}
+
+body.dark-theme .floating-button:hover,
+body.dark-theme .theme-toggle-button:hover {
+    background-color: #0077ff;
+}
+
+/* MENU PRINCIPAL DO INDEX — FINALMENTE LINDO! */
+.index-menu {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    flex-grow: 1;
+}
+
+.index-button {
+    padding: 18px;
+    border-radius: 16px;
+    font-size: 17px;
+    font-weight: 600;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.index-button.primary {
+    background: #0464bc;
+    color: white;
+}
+
+.index-button.secondary {
+    background: #d0d0d0;
+    color: #666;
+}
+
+.index-button.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+body.dark-theme .index-button.primary {
+    background: #0580e0;
+}
+
+body.dark-theme .index-button.secondary {
+    background: #444;
+    color: #ccc;
+}
