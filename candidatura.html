@@ -36,7 +36,7 @@
 
         <div class="form-box">
             <h2>Enviar Candidatura</h2>
-            <p><strong>Vaga:</strong> Estágio em TI - Empresa X</p>
+            <p><strong>Vaga:</strong> <span id="nomeVaga"></span></p>
             <label for="curriculo">Anexar Currículo (PDF):</label>
             <input type="file" id="curriculo" accept=".pdf">
             <button onclick="enviar()" class="button">Enviar Candidatura</button>
@@ -44,12 +44,28 @@
         </div>
 
         <div class="fixed-bottom-bar">
-            <a href="detalhes.html" class="bottom-back-button">
+            <a href="#" id="botaoVoltar" class="bottom-back-button">
                 <span class="material-icons">arrow_back</span> Voltar
             </a>
         </div>
     </div>
 
     <script src="script.js"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function(){
+        const urlParams = new URLSearchParams(window.location.search);
+        const vaga = urlParams.get("vaga") || "estagio";
+
+        const botaoVoltar = document.getElementById("botaoVoltar");
+        botaoVoltar.href = `detalhes.html?vaga=${vaga}`;
+        const spanVaga = document.getElementById("nomeVaga");
+
+        if (vaga === "devjr") {
+            spanVaga.textContent = "Desenvolvedor Júnior - Empresa Y";
+        } else {
+            spanVaga.textContent = "Estágio em TI - Empresa X";
+        }
+    });
+</script>
 </body>
 </html>

@@ -36,16 +36,15 @@
         </div>
 
         <div class="vaga-detalhes">
-            <h2>Estágio em TI</h2>
-            <p><strong>Empresa:</strong> Empresa X</p>
+            <h2 id="tituloVaga"></h2></h2>
+            <p><strong>Empresa:</strong> <span id="empresaVaga">Carregando . . . </span></p>
             <h3>Descrição:</h3>
-            <p>Apoiar a equipe de TI em atividades de suporte e manutenção.</p>
+            <p id="descricaoVaga"></p>
             <h3>Requisitos:</h3>
-            <ul>
-                <li>Estar cursando Engenharia</li>
-                <li>Conhecimentos básicos de informática</li>
+            <ul id="requisitosVaga">
+                <li>Carregando . . .</li>
             </ul>
-            <a href="candidatura.html" class="button">Candidatar-se</a>
+            <a href="candidatura.html" id="btnCandidatar" class="button">Candidatar-se</a>
         </div>
 
         <div class="fixed-bottom-bar">
@@ -56,5 +55,36 @@
     </div>
 
     <script src="script.js"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        const vaga = urlParams.get("vaga") || "estagio"; 
+        console.log("Parâmetro Recebido: ", vaga);
+
+        const titulo = document.getElementById("tituloVaga");
+        const empresa = document.getElementById("empresaVaga");
+        const descricao = document.getElementById("descricaoVaga");
+        const requisitos = document.getElementById("requisitosVaga");
+
+        if (vaga === "devjr") {
+            titulo.textContent = "Desenvolvedor Júnior";
+            empresa.textContent = "Empresa Y";
+            descricao.textContent = "Vaga para recém-formados com foco em desenvolvimento full-stack, participação em projetos reais e possibilidade de efetivação.";
+            requisitos.innerHTML = `
+                <li>Formação concluída ou a concluir até dez/2025</li>
+                <li>Conhecimentos em JavaScript, React ou Node.js</li>
+                <li>Disponibilidade para regime híbrido</li>
+                <li>Proatividade e vontade de aprender</li>`;
+        } else {
+            titulo.textContent = "Estágio em TI";
+            empresa.textContent = "Empresa X";
+            descricao.textContent = "Apoiar a equipe de TI em atividades de suporte e manutenção.";
+            requisitos.innerHTML = `<li>Estar cursando Engenharia</li><li>Conhecimentos básicos de informática</li>`;
+        }
+
+        const btn = document.getElementById("btnCandidatar");
+        btn.href = `candidatura.html?vaga=${vaga}`;
+    }); 
+    </script>
 </body>
 </html>
